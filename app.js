@@ -1,6 +1,12 @@
 import express from 'express'
+import routes from './routes'
+import morgan  from 'morgan'
 
 const app = express()
+
+app.use(morgan('combined'))
+
+app.use(routes)
 
 app.get('/', (req, res) => {
   res.send({
