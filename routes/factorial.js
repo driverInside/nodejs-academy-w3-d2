@@ -15,9 +15,9 @@ router.get('/:n', async (req, res) => {
   const { n } = req.params
   // TODO: validation
   log(typeof n)
-  log(Number.MAX_VALUE)
+  // log(Number.MAX_VALUE)
 
-  await client.connect()
+  log(await client.ping()) // pong
 
   let result = await client.get(n)
   log(`previous result: ${result}`)
@@ -26,14 +26,18 @@ router.get('/:n', async (req, res) => {
     result = factorial(parseInt(n))
 
     await client.set(n, result)
-
     // await client.set('tokenstring', JSON.stringify({ valid: true, exp: 123443243, user: 'hiram e. perez'}))
   }
 
-  client.quit()
   return res.json({
     message: `The factorial of ${n} is ${result}`
   })
 })
+
+/**
+ * await client.connect()
+
+  
+ */
 
 export default router
