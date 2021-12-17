@@ -1,0 +1,36 @@
+Now is your turn to seed your database using fake data. fakerjs
+
+- Football Soccer league:
+  There are 8 teams in the Globant Football League.
+  As you know, each team has 11 players.
+  Each player has a set of attributes: speed, stamina, mentality, control.
+
+  o Design the database using ER Model and attach the image (in png format).
+    Don't forget the relationships.
+  * Create the models and relationships using sequelize. You can create all the files you want.
+  * Create a new 'seed_gfsl.js' file and save the teams, the players and the attributes.
+    Use faker.js to create fake data (or create new functions).
+    Store the teams, players and attributes in your database.
+  * Tournament time!!!!
+    -- Create a new 'tournament.js' file.
+    -- Simulate a tournament: Each team must play with the rest.
+       So, a team must have 7 matches. 
+    -- 4 matches every week.
+       You will need generate a random score. (Range 0 to 5)
+    -- The champion will be the team with more wins. In case of a tie, goals is the tiebreaker (just the goals scored).
+    -- Show the results by week: Example:
+
+    + ---------------------- +
+    | Week 1                 |
+    + -----------------------+
+    | Team A vs Team B | 3 -0|
+    + -----------------------+
+    | Team C vs Team D | 1 -1|
+    + -----------------------+
+    ...
+    + ---------------------- +
+    | Week 2                 |
+    + -----------------------+
+    -- Feel free to use the format you want. Even, you can use static files on expressjs.
+    -- The result of every match, must be saved in the database.
+       

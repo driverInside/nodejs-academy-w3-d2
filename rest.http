@@ -1,0 +1,19 @@
+@host=http://localhost
+@port=3100
+@hostname={{host}}:{{port}}
+
+###
+GET {{hostname}}/globers
+Content-Type: application/json
+
+
+###
+POST {{hostname}}/globers
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "password": "1234",
+    "email": "hiramperez@globant.com",
+    "notes": "lorem ipsum"
+}
