@@ -4,8 +4,11 @@
   "description": "NodeJS Academy code example. W3 d2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "DEBUG=globant:* nodemon --exec babel-node index.js"
+    "build": "babel src -d dist",
+    "dev": "cross-env DEBUG=development:* NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "stage": "cross-env DEBUG=stage:* NODE_ENV=stage nodemon --exec babel-node src/index.js",
+    "test": "cross-env nodemon --exec babel-node src/index.js",
+    "start": "rm -rf node_modules dist && npm i && npm run build && cross-env NODE_ENV=production node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,9 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
+    "config": "^3.3.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
